@@ -1,0 +1,14 @@
+{
+  "INVENTORY_ITEM_LIST": {
+    "web": ".inventory_item"
+  },
+  "PASSWORD_INPUT": {
+    "web": "#password"
+  },
+  "LOGIN_BUTTON": {
+    "web": "#login-button"
+  },
+  "ERROR_LABEL": {
+    "web": ".error-message-container"
+  }
+}

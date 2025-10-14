@@ -1,0 +1,93 @@
+# ─────────────────────────────────────────────────────────────
+# Node / pnpm
+# ─────────────────────────────────────────────────────────────
+node_modules/
+.pnpm-debug.log*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+# Keep the pnpm lockfile tracked:
+# !pnpm-lock.yaml
+
+# ─────────────────────────────────────────────────────────────
+# OS junk
+# ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+.DS_Store?
+Icon?
+._*
+.Spotlight-V100
+.Trashes
+
+# ─────────────────────────────────────────────────────────────
+# IDE / Editor
+# ─────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.iml
+
+# ─────────────────────────────────────────────────────────────
+# Env / Secrets
+# ─────────────────────────────────────────────────────────────
+.env
+.env.local
+.env.*.local
+
+# ─────────────────────────────────────────────────────────────
+# Build / Bundles / Coverage
+# ─────────────────────────────────────────────────────────────
+dist/
+build/
+coverage/
+.nyc_output/
+
+# ─────────────────────────────────────────────────────────────
+# Cypress artifacts
+# ─────────────────────────────────────────────────────────────
+cypress/screenshots/
+cypress/videos/
+cypress/downloads/
+cypress/reports/
+cypress/results/
+# Auto-generated registrars (created at boot by RegistrarGenerator)
+cypress/.generated/
+
+# If you save JSON test reports here, ignore:
+cypress/**/*.json.report
+
+# ─────────────────────────────────────────────────────────────
+# Logs
+# ─────────────────────────────────────────────────────────────
+*.log
+logs/
+logs/**/*.log
+*.pid
+*.seed
+*.pid.lock
+
+# ─────────────────────────────────────────────────────────────
+# Allure / Mochawesome (optional reporters)
+# ─────────────────────────────────────────────────────────────
+allure-results/
+allure-report/
+mochawesome-report/
+mochawesome-report/*.html
+mochawesome-report/*.json
+
+# ─────────────────────────────────────────────────────────────
+# Misc caches / tooling
+# ─────────────────────────────────────────────────────────────
+.cache/
+.tmp/
+.temp/
+.eslintcache
+*.tsbuildinfo
+
+# ─────────────────────────────────────────────────────────────
+# Mac OneDrive / Cloud artifacts (common on macOS)
+# ─────────────────────────────────────────────────────────────
+*.icloud
+*.onecache
+~$*

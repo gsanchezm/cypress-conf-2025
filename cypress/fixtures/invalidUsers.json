@@ -1,0 +1,27 @@
+{
+  "emptyUser": {
+    "username": "",
+    "password": "",
+    "error": "Epic sadface: Username is required"
+  },
+  "emptyPassword": {
+    "username": "standard_user",
+    "password": "",
+    "error": "Epic sadface: Password is required"
+  },
+  "emptyUsername": {
+    "username": "",
+    "password": "secret_sauce",
+    "error": "Epic sadface: Username is required"
+  },
+  "wrongUser": {
+    "username": "test_user",
+    "password": "secret_sauce",
+    "error": "Epic sadface: Username and password do not match any user in this service"
+  },
+  "lockedOutUser": {
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "error": "Epic sadface: Sorry, this user has been locked out."
+  }
+}
