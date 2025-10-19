@@ -7,7 +7,7 @@ export class PerformOpenCart extends BaseTask{
      */
     run(ctx) {
       return cy.wrap(null)
-        .then(() => ctx.$loc.inventory.SHOPING_CART_ICON.clickOnElement())
+      .then(() => ctx.ui.do('inventory', 'SHOPING_CART_ICON', 'clickOnElement'))
         .then(() => cy.location('pathname').should('include', '/cart.html'))
     }
   }

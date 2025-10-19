@@ -6,7 +6,7 @@ export class PerformCheckout extends BaseTask{
      */
     run(ctx) {
       return cy.wrap(null)
-        .then(() => ctx.$loc.cart.CHECKOUT_BUTTON.clickOnElement())
+        .then(() => ctx.ui.do('cart', 'CHECKOUT_BUTTON', 'clickOnElement'))
         // optional: SauceDemo step-one URL
         .then(() => cy.location('pathname').should('include', '/checkout-step-one.html'))
     }

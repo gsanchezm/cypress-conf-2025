@@ -7,7 +7,7 @@ export class PerformFinishCheckout extends BaseTask{
      */
     run(ctx) {
       return cy.wrap(null)
-        .then(() => ctx.$loc.checkOutOverview.FINISH_BUTTON.clickOnElement())
+        .then(() => ctx.ui.do('checkOutOverview', 'FINISH_BUTTON', 'clickOnElement'))
         .then(() => cy.location('pathname').should('include', '/checkout-complete.html'))
     }
   }  

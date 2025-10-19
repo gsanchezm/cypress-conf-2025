@@ -9,8 +9,8 @@ export class PerformLogin extends BaseTask {
   run(ctx, { username, password }) {
     ctx.info('Performing login', { username })
     return cy.wrap(null)
-      .then(() => ctx.$loc.signIn.USERNAME_INPUT.typeIfNotEmpty(username))
-      .then(() => ctx.$loc.signIn.PASSWORD_INPUT.typeIfNotEmpty(password))
-      .then(() => ctx.$loc.signIn.LOGIN_BUTTON.clickOnElement())
+      .then(() => ctx.ui.do('signIn', 'USERNAME_INPUT', 'typeIfNotEmpty', username))
+      .then(() => ctx.ui.do('signIn', 'PASSWORD_INPUT', 'typeIfNotEmpty', password))
+      .then(() => ctx.ui.do('signIn', 'LOGIN_BUTTON',   'clickOnElement'))
   }
 }

@@ -1,22 +1,13 @@
 import { BaseValidation } from '../../../common/validations/baseValidation.js'
 
-/**
- * Validates that cart contains expected items and prices.
- * input:
- *   - expected: array of { title, priceNumber } OR alias name (string) where array is stored (e.g., 'pickedItems')
- *   - strictCount?: boolean (default true) → require same count
- *   - orderAgnostic?: boolean (default true) → compare as sets, not order
- */
 export class ValidateCartItemsMatch extends BaseValidation {
   check(ctx, { expected, strictCount = true, orderAgnostic = true } = {}) {
-    const readExpected = () => {
-      if (typeof expected === 'string') return cy.get(`@${expected}`)
-      return cy.wrap(expected)
-    }
+    const readExpected = () => (typeof expected === 'string'
+      ? cy.get(`@${expected}`)
+      : cy.wrap(expected))
 
-    // scrape items from the cart page
     const readCart = () =>
-      ctx.$loc.cart.CART_ITEM_LIST.getAll().then($items => {
+      ctx.ui.do('cart', 'CART_ITEM_LIST', 'getAll').then($items => {  // ← LoD
         const list = []
         Cypress.$($items).each((_i, el) => {
           const $el = Cypress.$(el)
@@ -28,23 +19,17 @@ export class ValidateCartItemsMatch extends BaseValidation {
         return list
       })
 
-    return cy
-      .then(readExpected)
+    return cy.then(readExpected)
       .then(exp => readCart().then(actual => ({ exp, actual })))
       .then(({ exp, actual }) => {
         if (strictCount) expect(actual.length, 'cart items count').to.equal(exp.length)
-
-        const norm = (arr) => arr.map(i => ({ t: i.title.trim(), p: +i.priceNumber }))
-        const A = norm(actual)
-        const E = norm(exp)
-
+        const norm = arr => arr.map(i => ({ t: i.title.trim(), p: +i.priceNumber }))
+        const A = norm(actual), E = norm(exp)
         if (orderAgnostic) {
-          const toKey = (i) => `${i.t}::${i.p}`
-          const setA = new Set(A.map(toKey))
-          const setE = new Set(E.map(toKey))
-          expect(setA, 'cart items set').to.deep.equal(setE)
+          const toKey = i => `${i.t}::${i.p}`
+          expect(new Set(A.map(toKey))).to.deep.equal(new Set(E.map(toKey)))
         } else {
-          expect(A, 'cart items sequence').to.deep.equal(E)
+          expect(A).to.deep.equal(E)
         }
       })
   }

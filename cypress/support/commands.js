@@ -23,7 +23,7 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-import { createTestKernel } from '../../cypress/factory/createTestKernel.js'
+import { createTestKernel } from '../../common/factory/createTestKernel'
 
 // Build the kernel once (actions + $loc + registries)
 const kernel = createTestKernel()

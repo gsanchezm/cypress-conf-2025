@@ -13,7 +13,7 @@ export class PerformSelectMenuItem extends BaseTask{
   
       // 1) Open the left menu from inventory page
       //    (uses your action ClickOnElement → should('be.visible').click())
-      ctx.$loc.inventory.HAMBURGER_BUTTON.clickOnElement()
+      ctx.ui.do('inventory', 'HAMBURGER_BUTTON', 'clickOnElement')
   
       // 2) Wait until the menu options are visible
       return ctx.client.getSelector('menu', 'NAV_LIST').then((sel) => {

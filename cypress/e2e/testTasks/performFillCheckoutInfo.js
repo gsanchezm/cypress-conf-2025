@@ -26,11 +26,10 @@ export class PerformFillCheckoutInfo {
   
         // Fill
         return cy
-          .then(() => ctx.$loc.checkOutUserInformation.FIRSTNAME_INPUT.typeIfNotEmpty(data.firstName))
-          .then(() => ctx.$loc.checkOutUserInformation.LASTNAME_INPUT.typeIfNotEmpty(data.lastName))
-          .then(() => ctx.$loc.checkOutUserInformation.ZIP_INPUT.typeIfNotEmpty(data.zip))
-          // Continue
-          .then(() => ctx.$loc.checkOutUserInformation.CONTINUE_BUTTON.clickOnElement())
+          .then(() => ctx.ui.do('checkOutUserInformation', 'FIRSTNAME_INPUT',  'typeIfNotEmpty', data.firstName))
+          .then(() => ctx.ui.do('checkOutUserInformation', 'LASTNAME_INPUT',   'typeIfNotEmpty', data.lastName))
+          .then(() => ctx.ui.do('checkOutUserInformation', 'ZIP_INPUT',        'typeIfNotEmpty', data.zip))
+          .then(() => ctx.ui.do('checkOutUserInformation', 'CONTINUE_BUTTON',  'clickOnElement'))
           // Optional: assert we navigated to step two
           .then(() => cy.location('pathname').should('include', '/checkout-step-two.html'))
       })

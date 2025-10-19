@@ -30,6 +30,7 @@ describe("user can authenticat with valid credentials", () => {
       .then(() => runValidation('validateCheckoutItemSubtotalMatches', { fromAlias: 'pickedItems' }))
       // finish
       .then(() => runTask('performFinishCheckout'))
-      .then(() => runTask('performSelectMenuItem', { text: 'Logout' }))
+      //mode: 'index', index: 2
+      .then(() => runTask('performOpenMenuWithStrategy', { mode: 'text', text: 'Logout'  }))
   })
 });

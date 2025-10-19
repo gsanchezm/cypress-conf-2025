@@ -1,8 +1,8 @@
 import pino from 'pino'
-import { createLocatorProxy } from '../../common/factory/createLocatorProxy.js'
+import { createLocatorProxy } from './createLocatorProxy.js'
 
-import { TaskRegistry } from '../../common/tasks/taskRegistry.js'
-import { ValidationRegistry } from '../../common/validations/validationRegistry.js'
+import { TaskRegistry } from '../tasks/taskRegistry.js'
+import { ValidationRegistry } from '../validations/validationRegistry.js'
 
 import { registerAllTestTasks } from '../../cypress/.generated/tasks.generated.js'
 import { registerAllTestValidations } from '../../cypress/.generated/validations.generated.js'
@@ -18,8 +18,8 @@ import { registerAllTestValidations } from '../../cypress/.generated/validations
  *   $loc: any,
  *   client: import('../../locator/locatorClient.js').LocatorClient,
  *   actions: import('../actions/ActionRegistry.js').ActionRegistry,
- *   tasks: import('../tasks/TaskRegistry.js').TaskRegistry,
- *   validations: import('../validations/ValidationRegistry.js').ValidationRegistry,
+ *   tasks: import('../tasks/taskRegistry.js').TaskRegistry,
+ *   validations: import('../validations/validationRegistry.js').ValidationRegistry,
  *   runTask: (name: string, input?: any) => Cypress.Chainable,
  *   runValidation: (name: string, input?: any) => Cypress.Chainable
  * }}
@@ -31,13 +31,14 @@ export function createTestKernel(opts = {}) {
   })
 
   // Base UI plumbling: locator client + $loc proxy + action registry
-  const { $loc, client, registry: actions } = createLocatorProxy(opts)
+  const { $loc, client, ui, registry: actions } = createLocatorProxy(opts)
 
   /** @type {import('../contracts/IUIContext').IUIContext} */
   const ctx = {
     client,
     actions,
     $loc,
+    ui,
     info: (msg, meta) => logger.info(meta || {}, msg),
     debug: (msg, meta) => logger.debug(meta || {}, msg),
     error: (msg, meta) => logger.error(meta || {}, msg),
@@ -54,5 +55,5 @@ export function createTestKernel(opts = {}) {
   const runTask = (name, input) => tasks.create(name).run(ctx, input)
   const runValidation = (name, input) => validations.create(name).check(ctx, input)
 
-  return { ctx, $loc, client, actions, tasks, validations, runTask, runValidation }
+  return { ctx, $loc, client, actions, ui, tasks, validations, runTask, runValidation }
 }
