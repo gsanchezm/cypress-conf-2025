@@ -1,17 +1,11 @@
 {
-  "USERNAME_INPUT": {
-    "web": {
-      "DESKTOP": "#user-name",
-      "RESPONSIVE": "#user-name"
-    }
+  "CART_ITEM_LIST": {
+    "web": ".cart_item"
   },
-  "PASSWORD_INPUT": {
-    "web": "#password"
+  "CHECKOUT_BUTTON": {
+    "web": "#checkout"
   },
-  "LOGIN_BUTTON": {
-    "web": "#login-button"
-  },
-  "ERROR_LABEL": {
-    "web": ".error-message-container"
+  "CONTINUE_SHOPING_BUTTON": {
+    "web": "#continue-shopping"
   }
 }

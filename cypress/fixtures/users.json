@@ -1,6 +1,15 @@
 {
   "standardUser": {
     "username": "standard_user",
-    "password": "secret_sauce"
+    "password": "secret_sauce",
+    "items": [
+      "Sauce Labs Backpack",
+      "Sauce Labs Bike Light"
+    ],
+    "checkout": {
+      "firstName": "MexiTester",
+      "lastName": "Mares",
+      "zip": "20000"
+    }
   }
 }

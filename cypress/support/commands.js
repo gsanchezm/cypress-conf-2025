@@ -44,3 +44,16 @@ Cypress.Commands.add('sel', (a, b, options) => {
 Cypress.Commands.add('dismissKnownBanners', () =>
   client.dismissIfVisible('dashboard', 'SMART_BANNER')
 )
+
+// Debug helper: print all registered task/validation keys
+Cypress.Commands.add('printKernelRegs', () => {
+  // registry objects are Maps inside the kernel
+  const taskNames = Array.from(kernel.tasks.map.keys())
+  const validationNames = Array.from(kernel.validations.map.keys())
+  // emit to Cypress log
+  cy.log('Tasks:', taskNames.join(', '))
+  cy.log('Validations:', validationNames.join(', '))
+  // also to the console for clarity
+  // eslint-disable-next-line no-console
+  console.table({ tasks: taskNames, validations: validationNames })
+})

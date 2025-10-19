@@ -1,17 +1,17 @@
 {
-  "USERNAME_INPUT": {
-    "web": {
-      "DESKTOP": "#user-name",
-      "RESPONSIVE": "#user-name"
-    }
+  "FIRSTNAME_INPUT": {
+    "web": "#first-name"
   },
-  "PASSWORD_INPUT": {
-    "web": "#password"
+  "LASTNAME_INPUT": {
+    "web": "#last-name"
   },
-  "LOGIN_BUTTON": {
-    "web": "#login-button"
+  "ZIP_INPUT": {
+    "web": "#postal-code"
   },
-  "ERROR_LABEL": {
-    "web": ".error-message-container"
+  "CANCEL_BUTTON": {
+    "web": "#cancel"
+  },
+  "CONTINUE_BUTTON": {
+    "web": "#continue"
   }
 }

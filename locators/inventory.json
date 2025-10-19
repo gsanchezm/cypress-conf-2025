@@ -2,13 +2,10 @@
   "INVENTORY_ITEM_LIST": {
     "web": ".inventory_item"
   },
-  "PASSWORD_INPUT": {
-    "web": "#password"
+  "SHOPING_CART_ICON": {
+    "web": ".shopping_cart_link"
   },
-  "LOGIN_BUTTON": {
-    "web": "#login-button"
-  },
-  "ERROR_LABEL": {
-    "web": ".error-message-container"
+  "HAMBURGER_BUTTON": {
+    "web": "#react-burger-menu-btn"
   }
 }

@@ -4,7 +4,6 @@ const users = require('../../fixtures/users.json')
 describe('user can authenticat with valid credentials', () => {
   beforeEach(() => {
     cy.visit('/')
-    //cy.dismissKnownBanners()
   })
 
   it('logs in and lands on dashboard', () => {

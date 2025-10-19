@@ -1,12 +1,9 @@
 {
-  "USERNAME_INPUT": {
-    "web": {
-      "DESKTOP": "#user-name",
-      "RESPONSIVE": "#user-name"
-    }
+  "THANK_YOU_LABEL": {
+    "web": ".complete-text"
   },
-  "PASSWORD_INPUT": {
-    "web": "#password"
+  "BACK_HOME_BUTTON": {
+    "web": "#back-to-products"
   },
   "LOGIN_BUTTON": {
     "web": "#login-button"

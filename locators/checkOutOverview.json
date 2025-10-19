@@ -1,17 +1,8 @@
 {
-  "USERNAME_INPUT": {
-    "web": {
-      "DESKTOP": "#user-name",
-      "RESPONSIVE": "#user-name"
-    }
+  "FINISH_BUTTON": {
+    "web": "#finish"
   },
-  "PASSWORD_INPUT": {
-    "web": "#password"
-  },
-  "LOGIN_BUTTON": {
-    "web": "#login-button"
-  },
-  "ERROR_LABEL": {
-    "web": ".error-message-container"
+  "SUMMARY_INFO_LIST": {
+    "web": ".summary_info"
   }
 }
